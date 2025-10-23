@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gulai Kambing Nusantara - UMKM Makanan Tradisional</title>
+  <style>
+    /* Reset dan Styling Dasar */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f5f0;
+    }
+
+    /* Navigasi */
+    nav {
+      background-color: #8B4513;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+
+    .logo {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin-left: 25px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #FFD700;
+    }
+
+    /* Section Umum */
+    section {
+      padding: 100px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1, h2, h3 {
+      color: #8B4513;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+    }
+
+    /* Beranda */
+    #beranda {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                  url('gulai3.jpeg')
+                  no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    #beranda h1 {
+      font-size: 3rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #FFD700;
+      color: #8B4513;
+      padding: 12px 30px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #e6c200;
+    }
+
+    /* Promosi */
+    .promo-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .promo-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .promo-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .promo-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .promo-content {
+      padding: 20px;
+    }
+
+    .price {
+      color: #8B4513;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    /* Lokasi & Kontak Gabung */
+    #lokasi-kontak {
+      background-color: #f0f0f0;
+    }
+
+    .lokasi-kontak-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .map-container {
+      height: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      min-height: 400px;
+    }
+
+    .contact-box {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .contact-info {
+      margin-bottom: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .contact-item i {
+      margin-right: 10px;
+      color: #8B4513;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #8B4513;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Responsif */
+    @media (max-width: 900px) {
+      .lokasi-kontak-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigasi -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Depot Sate Pak Toha</div>
+      <ul class="nav-links">
+        <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#promosi">Promosi</a></li>
+        <li><a href="#lokasi-kontak">Lokasi & Kontak</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Beranda -->
+  <section id="beranda">
+    <div class="container">
+      <h1>Depot Sate Pak Toha</h1>
+      <p>Nikmati kelezatan gulai kambing tradisional dengan resep turun-temurun khas Indonesia.</p>
+      <a href="#promosi" class="btn">Lihat Menu</a>
+    </div>
+  </section>
+
+  <!-- Promosi -->
+  <section id="promosi">
+    <div class="container">
+      <h2>Menu Spesial Kami</h2>
+      <div class="promo-container">
+        <div class="promo-card">
+          <img src="gulai4.jpg" alt="Gulai Kambing" class="promo-img">
+          <div class="promo-content">
+            <h3>Gulai Kambing</h3>
+            <p>Gulai kambing gurih dengan bumbu rempah khas nusantara dan daging empuk.</p>
+            <p class="price">Rp 25.000</p>
+          </div>
+        </div>
+        <div class="promo-card">
+          <img src="sopkambing.jpg" class="promo-img">
+          <div class="promo-content">
+            <h3>Sop Kambing</h3>
+            <p>Kuah bening gurih dengan aroma rempah segar dan potongan daging kambing pilihan.</p>
+            <p class="price">Rp 30.000</p>
+          </div>
+        </div>
+        <div class="promo-card">
+          <img src="kepala.jpg" class="promo-img">
+          <div class="promo-content">
+            <h3>Kepala Kambing</h3>
+            <p>Olahan kepala kambing dengan kuah gulai pekat dan cita rasa rempah kuat.</p>
+            <p class="price">Rp 100.000</p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lokasi & Kontak Gabung -->
+  <section id="lokasi-kontak">
+    <div class="container">
+      <h2>Lokasi & Kontak Kami</h2>
+      <div class="lokasi-kontak-container">
+        <!-- MAP -->
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.123943663612!2d113.65159969999999!3d-8.1902677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd691595e71a195%3A0xebda8b836e2a536b!2sWarung%20Sate%20Pak%20Toha!5e0!3m2!1sid!2sid!4v1761198592882!5m2!1sid!2sid"
+                  class="map-frame" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <!-- KONTAK -->
+        <div class="contact-box">
+          <div class="contact-info">
+            <h3>Hubungi Kami</h3>
+            <div class="contact-item"><i>📍</i><p>Jl. Brawijaya No.31, Karang Miuwo, Mangli, Kec. Kaliwates, Kabupaten Jember, Jawa Timur 68131</p></div>
+            <div class="contact-item"><i>📞</i><p>0821-4122-6224</p></div>
+            <div class="contact-item"><i>✉️</i><p>gulaikambingpaktoha@gmail.com</p></div>
+            <div class="contact-item"><i>🕒</i><p>Buka setiap hari: 10.00 - 22.00 WIB</p></div>
+          </div>
+
+          <form class="contact-form">
+            <input type="text" placeholder="Nama" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Pesan" required></textarea>
+            <button type="submit" class="btn" style="width:100%;">Kirim Pesan</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Depot Sate Pak Toha</p>
+  </footer>
+
+  <script>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Form Submission
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Terima kasih! Pesan Anda telah dikirim.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
